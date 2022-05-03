@@ -1,7 +1,5 @@
 from flask import Flask, render_template_string, request
 import pyonr
-import notdb
-from requests import get
 from flask_minify import minify
 
 def refresh_data(file:pyonr.Read) -> dict:
@@ -48,10 +46,30 @@ viewer_html = '''
          from { transform: rotate(0deg) } 
          to { transform: rotate(360deg) } 
       }
+
+      * {
+         -webkit-appearance: none;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: var(--dark_bg2);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+         background: #223150;
+      }
+      
+      ::-webkit-scrollbar-track {
+         background: var(--dark_bg);
+      }
       
       body {
          background-color: var(--dark_bg);
-         color: var(--main_super_light)
+         color: var(--main_super_light);
          padding-bottom: 300px;
       }
 
