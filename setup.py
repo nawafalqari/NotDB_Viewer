@@ -5,27 +5,33 @@ from notdb_viewer import __version__ as v
 with open('README.md', 'r', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
+packages = [
+    *find_packages(where='notdb_viewer')
+]
+
 setup(
     name='notdb_viewer',
-    packages=find_packages(),
+    packages=packages,
+    package_data={'notdb_viewer': ['server/templates/viewer.html']},
+    include_package_data=True,
     version=v,
-    description='',
+    description='Viewer for NotDB Databases',
     author='Nawaf Alqari',
     author_email='nawafalqari13@gmail.com',
-    keywords=['db'],
+    keywords=['notdb', 'db', 'database', 'notdatabsae', 'simple database'],
     long_description=readme,
     long_description_content_type='text/markdown',
     entry_points={
-    'console_scripts': [ 'notdb=notdb.__main__:main']
-    },
-    project_urls={
-        'Documentation': 'https://github.com/nawafalqari/NotDB#readme',
-        'Bug Tracker': 'https://github.com/nawafalqari/NotDB/issues',
-        'Source Code': 'https://github.com/nawafalqari/NotDB/',
-        'Discord': 'https://discord.gg/cpvynqk4XT'
+    'console_scripts': [ 'notdb_viewer=notdb_viewer.__main__:main']
     },
     license='MIT',
-    url='https://github.com/nawafalqari/notdb/',
+    url='https://github.com/nawafalqari/NotDB_Viewer/',
+    project_urls={
+        'Documentation': 'https://github.com/nawafalqari/NotDB_Viewer#readme',
+        'Bug Tracker': 'https://github.com/nawafalqari/NotDB_Viewer/issues',
+        'Source Code': 'https://github.com/nawafalqari/NotDB_Viewer/',
+        'Discord': 'https://discord.gg/cpvynqk4XT'
+    },
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

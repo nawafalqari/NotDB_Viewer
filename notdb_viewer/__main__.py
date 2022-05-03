@@ -4,9 +4,12 @@ import pyonr
 import os
 from getpass import getpass
 from bcrypt import checkpw
-from app import create_app
+from server.app import create_app
 
 from notdb_viewer import __version__ as v
+
+def main():
+   pass
 
 def refresh_data(file:pyonr.Read):
    return file.readfile
