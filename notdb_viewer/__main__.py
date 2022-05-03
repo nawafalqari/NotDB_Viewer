@@ -4,9 +4,9 @@ import pyonr
 import os
 from getpass import getpass
 from bcrypt import checkpw
-from server.app import create_app
+from .app import create_app
 
-from notdb_viewer import __version__ as v
+from .__init__ import __version__ as v
 
 def main():
    pass
@@ -31,6 +31,7 @@ def is_taken_port(port: int):
 
 parser = argparse.ArgumentParser('NotDB Viewer', 'notdb_viewer [filename]', f'NotDB Viewer tool v{v}')
 parser.add_argument('filename', nargs=1, type=str, help='Run a webapp to view your database data', metavar='filename')
+parser.add_argument('-v', '--version', action='version', version=f'notdb_viewer {v}', help='Show the notdb_viewer version')
 
 args = parser.parse_args()
 

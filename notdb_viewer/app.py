@@ -52,6 +52,7 @@ viewer_html = '''
       body {
          background-color: var(--dark_bg);
          color: var(--main_super_light)
+         padding-bottom: 300px;
       }
 
       div.container {
