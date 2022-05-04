@@ -1,4 +1,14 @@
-# NotDB
-Viewer for NotDB Databases
+# NotDB Viewer
+Simple viewer for NotDB Databases
 
-Still on beta version.
+## Installation
+#### PIP
+```
+pip install notdb_viewer
+```
+
+## Quick Start
+```bash
+notdb_viewer db.ndb
+```
+it will ask you for a port (default port is 5000)
