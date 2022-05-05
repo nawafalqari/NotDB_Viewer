@@ -1,9 +1,20 @@
+'''
+NotDB Viewer
+-----
+
+NotDB Simple viewer for NotDB Databases
+
+    $ pip install notdb-viewer
+
+Full documentation is avaliable on `Github <https://github.com/nawafalqari/NotDB_Viewer#readme>`_.
+'''
+
 from setuptools import setup, find_packages
-import codecs
 import os.path
 
 # got these 2 functions from https://packaging.python.org/en/latest/guides/single-sourcing-package-version/
 def read(rel_path):
+    import codecs
     here = os.path.abspath(os.path.dirname(__file__))
     with codecs.open(os.path.join(here, rel_path), 'r') as fp:
         return fp.read()
@@ -16,10 +27,6 @@ def get_version(rel_path):
     else:
         raise RuntimeError("Unable to find version string.")
 
-# README.md
-with open('README.md', 'r', encoding='utf-8') as readme_file:
-    readme = readme_file.read()
-
 packages = [
     *find_packages()
 ]
@@ -28,8 +35,9 @@ setup(
     name='notdb_viewer',
     packages=packages,
     install_requires=[
-        'pyonr',
-        'bcrypt',
+        'notdb>=1.0.2',
+        'pyonr>=1.0.0',
+        'bcrypt3.2.0',
         'flask',
         'flask_minify'
     ],
@@ -38,8 +46,7 @@ setup(
     author='Nawaf Alqari',
     author_email='nawafalqari13@gmail.com',
     keywords=['notdb', 'db', 'database', 'notdatabsae', 'simple database'],
-    long_description=readme,
-    long_description_content_type='text/markdown',
+    long_description=__doc__,
     entry_points={
         'console_scripts': ['notdb_viewer=notdb_viewer.__main__:main']
     },
@@ -50,7 +57,8 @@ setup(
         'Documentation': 'https://github.com/nawafalqari/NotDB_Viewer#readme',
         'Bug Tracker': 'https://github.com/nawafalqari/NotDB_Viewer/issues',
         'Source Code': 'https://github.com/nawafalqari/NotDB_Viewer/',
-        'Discord': 'https://discord.gg/cpvynqk4XT'
+        'Discord': 'https://discord.gg/cpvynqk4XT',
+        'Donate': 'https://paypal.me/NawafHAlqari'
     },
     classifiers=[
         'Programming Language :: Python :: 3',

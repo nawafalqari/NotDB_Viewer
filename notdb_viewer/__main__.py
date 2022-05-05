@@ -3,7 +3,7 @@ import notdb
 import pyonr
 import os
 from getpass import getpass
-from bcrypt import checkpw
+from bcrypt import _checkpw
 from .app import create_app
 
 from .__init__ import __version__ as v
@@ -47,7 +47,7 @@ if len(args.filename) != 0:
    db = None
    if filedata.get('__password'):
       _p = get_password()
-      if not checkpw(_p, filedata.get('__password')):
+      if not _checkpw(_p, filedata.get('__password')):
          parser.error('Wrong password.')
 
       db = notdb.NotDBClient(filename, password=_p)

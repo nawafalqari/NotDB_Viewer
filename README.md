@@ -4,7 +4,7 @@ Simple viewer for NotDB Databases
 ## Installation
 #### PIP
 ```
-pip install notdb_viewer
+pip install notdb-viewer
 ```
 
 ## Quick Start
