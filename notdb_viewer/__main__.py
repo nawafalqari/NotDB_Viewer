@@ -3,10 +3,10 @@ import notdb
 import pyonr
 import os
 from getpass import getpass
-from bcrypt import _checkpw
-from .app import create_app
+from bcrypt import checkpw as _checkpw
+from app import create_app
 
-from .__init__ import __version__ as v
+from __init__ import __version__ as v
 
 def main():
    pass
@@ -35,33 +35,34 @@ parser.add_argument('-v', '--version', action='version', version=f'notdb_viewer 
 
 args = parser.parse_args()
 
-if len(args.filename) != 0:
-   filename = args.filename[0]
-   
-   if not os.path.isfile(filename):
-      parser.error('Invalid filename/path')
-   
+if __name__ == '__main__' or __name__ == 'notdb_viewer.__main__':
+   if len(args.filename) != 0:
+      filename = args.filename[0]
+      
+      if not os.path.isfile(filename):
+         parser.error('Invalid filename/path')
+      
 
-   file = pyonr.Read(filename)
-   filedata = refresh_data(file)
-   db = None
-   if filedata.get('__password'):
-      _p = get_password()
-      if not _checkpw(_p, filedata.get('__password')):
-         parser.error('Wrong password.')
+      file = pyonr.Read(filename)
+      filedata = refresh_data(file)
+      db = None
+      if filedata.get('__password'):
+         _p = get_password()
+         if not _checkpw(_p, filedata.get('__password')):
+            parser.error('Wrong password.')
 
-      db = notdb.NotDBClient(filename, password=_p)
-   else:
-      db = notdb.NotDBClient(filename)
-         
-   
-   port = get_port()
-   if is_taken_port(port):
-      parser.error('Used port')
+         db = notdb.NotDBClient(filename, password=_p)
+      else:
+         db = notdb.NotDBClient(filename)
+            
+      
+      port = get_port()
+      if is_taken_port(port):
+         parser.error('Used port')
 
-   wa = create_app()
+      wa = create_app()
 
-   wa.db = db
-   wa.file = file
+      wa.db = db
+      wa.file = file
 
-   wa.run(port=port)
+      wa.run(port=port)

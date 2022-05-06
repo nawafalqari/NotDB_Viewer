@@ -1,6 +1,6 @@
 '''
 NotDB Viewer
------
+------------
 
 NotDB Simple viewer for NotDB Databases
 
@@ -47,6 +47,7 @@ setup(
     author_email='nawafalqari13@gmail.com',
     keywords=['notdb', 'db', 'database', 'notdatabsae', 'simple database'],
     long_description=__doc__,
+    long_description_content_type='text/x-rst',
     entry_points={
         'console_scripts': ['notdb_viewer=notdb_viewer.__main__:main']
     },
