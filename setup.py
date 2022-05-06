@@ -2,7 +2,7 @@
 NotDB Viewer
 ------------
 
-NotDB Simple viewer for NotDB Databases
+Simple viewer for NotDB Databases
 
     $ pip install notdb-viewer
 
@@ -37,9 +37,9 @@ setup(
     install_requires=[
         'notdb>=1.0.2',
         'pyonr>=1.0.0',
-        'bcrypt3.2.0',
+        'bcrypt>=3.2.0',
         'flask',
-        'flask_minify'
+        'flask-minify'
     ],
     version=get_version('notdb_viewer/__init__.py'),
     description='Viewer for NotDB Databases',
