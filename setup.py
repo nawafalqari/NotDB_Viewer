@@ -34,8 +34,9 @@ packages = [
 setup(
     name='notdb_viewer',
     packages=packages,
+    include_package_data=True,
     install_requires=[
-        'notdb>=1.0.2',
+        'notdb>=1.2.6',
         'pyonr>=1.0.0',
         'bcrypt>=3.2.0',
         'flask',
